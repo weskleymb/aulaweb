@@ -9,6 +9,4 @@ public class SexoDAO extends GenericDAO<Sexo> {
         return Sexo.class;
     }
     
-    
-    
 }

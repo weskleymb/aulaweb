@@ -1,6 +1,7 @@
 package br.senac.rn.model;
 
 import br.senac.rn.dao.PersistDB;
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tb_sexos")
-public class Sexo implements PersistDB {
+public class Sexo implements PersistDB, Serializable {
     
     @Id
     @GeneratedValue
@@ -25,10 +26,12 @@ public class Sexo implements PersistDB {
         return "Sexo{" + "id=" + id + ", nome=" + nome + ", Sigla=" + Sigla + '}';
     }
 
+    @Override
     public int getId() {
         return id;
     }
 
+    @Override
     public void setId(int id) {
         this.id = id;
     }

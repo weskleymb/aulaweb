@@ -36,7 +36,6 @@ public class ClienteMBean {
             cliente.setSexo(sexo);
             dao.insert(cliente);
             cliente = new Cliente();
-            sexo = new Sexo();
         } else {
             dao.update(cliente);
         }
