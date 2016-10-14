@@ -1,6 +1,7 @@
 package br.senac.rn.controller;
 
 import br.senac.rn.dao.ClienteDAO;
+import br.senac.rn.dao.SexoDAO;
 import br.senac.rn.model.Cliente;
 import br.senac.rn.model.Sexo;
 import java.util.List;
@@ -31,9 +32,11 @@ public class ClienteMBean {
     public String salvar() {
         ClienteDAO dao = new ClienteDAO();
         if (cliente.getId() == 0) {
+            sexo = new SexoDAO().selectById(sexo.getId());
             cliente.setSexo(sexo);
-            System.out.println(cliente.toString());
             dao.insert(cliente);
+            cliente = new Cliente();
+            sexo = new Sexo();
         } else {
             dao.update(cliente);
         }
